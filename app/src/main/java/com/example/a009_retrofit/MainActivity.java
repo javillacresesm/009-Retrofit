@@ -12,6 +12,7 @@ import com.example.a009_retrofit.Service.MovieDetailListener;
 import com.example.a009_retrofit.Service.MovieListener;
 import com.example.a009_retrofit.Service.MovieService;
 import com.example.a009_retrofit.json_mapper.Movie;
+import com.example.a009_retrofit.json_mapper.MovieDetail;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Método para obtener las películas populares
     private void getPopularMovies() {
-        MovieService.getPopularMovies("TU_API_KEY", "es-ES", 1, new MovieListener() {
+        MovieService.getPopularMovies("abeb5694268b4c076a67d6a808767acf", "es-ES", 1, new MovieListener() {
             @Override
             public void onSuccess(List<Movie> movies) {
                 for (Movie movie : movies) {
@@ -75,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Método para buscar películas
     private void searchMovies(String query) {
-        MovieService.searchMovies("TU_API_KEY", "es-ES", query, 1, new MovieListener() {
+        MovieService.searchMovies("abeb5694268b4c076a67d6a808767acf", "es-ES", query, 1, new MovieListener() {
             @Override
             public void onSuccess(List<Movie> movies) {
                 if (movies != null && !movies.isEmpty()) {
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Método para obtener detalles de una película específica
     private void getMovieDetails(int movieId) {
-        MovieService.getMovieDetails(movieId, "TU_API_KEY", "es-ES", new MovieDetailListener() {
+        MovieService.getMovieDetails(movieId, "abeb5694268b4c076a67d6a808767acf", "es-ES", new MovieDetailListener() {
             @Override
             public void onSuccess(MovieDetail movieDetail) {
                 Log.d("MainActivity", "Título: " + movieDetail.getTitle());
